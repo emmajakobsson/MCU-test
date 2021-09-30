@@ -17,7 +17,7 @@ static void configure_sensor(void)
 void app_main(void)
 {
     int data = -2;
-    //hejhej kopän
+    //hejhej kopän igen
     configure_sensor();
 
     while(1){
