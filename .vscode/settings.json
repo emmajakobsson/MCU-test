@@ -4,6 +4,10 @@
     "array": "c",
     "string": "c",
     "string_view": "c",
-    "task.h": "c"
+    "task.h": "c",
+    "func.h": "c",
+    "freertos.h": "c",
+    "stdio.h": "c",
+    "i2c.h": "c"
   }
 }
