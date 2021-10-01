@@ -22,5 +22,4 @@ void app_main(void)
         printf("Sensor: %u\n",data);
         
     }
-
 }
