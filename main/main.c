@@ -11,15 +11,19 @@ void app_main(void)
         printf("Sensor reading: %d\n",data);
         vTaskDelay(100);
     }*/
-    uint8_t data = -2;
+    uint8_t *data = {0};
+    int i = 0;
+    int count = 0;
 
-    printf("Hejhej\n");
-    configure_i2c();
+    configure_i2c_master();
     
-    //i2c_driver_delete(I2C_MASTER_NUM);
     while(1){
-        data = read_imu(data);
-        printf("Sensor: %u\n",data);
-        
+        read_master_imu(data);
+        printf("Count: %d\n", count);
+        for(i = 0; i < 10; i++){
+            printf("Sensor: %hhn\n", data);
+        }
+        count++;
+        vTaskDelay(1000);
     }
 }
