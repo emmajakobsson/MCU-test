@@ -23,18 +23,18 @@ void configure_i2c_master(void){
     i2c_driver_install(I2C_MASTER_NUM, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
 }
 
+//configure accelerometer/gyro
+void write_slave_reg(void){
+    uint8_t reg_addr = 0x10; //CTRL1_XL
+
+    i2c_master_write_to_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+}
+
 //read i2c master
 void read_master_imu(uint8_t *data){
-    // uint8_t *temp;
-    // temp = malloc(40);
-
-    //i2c_master_write_to_device();
     uint8_t reg_addr = 0x0B; //0x0F
 
     //i2c_master_read_from_device(I2C_MASTER_NUM, SLAVE_ADDR, data, 512, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 
     i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, 4, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
-
-    // printf("%u", temp[0]);
-    // *data = *temp;
 }
