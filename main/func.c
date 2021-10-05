@@ -25,10 +25,16 @@ void configure_i2c_master(void){
 
 //read i2c master
 void read_master_imu(uint8_t *data){
-    uint8_t *temp;
-    temp = malloc(40);
+    // uint8_t *temp;
+    // temp = malloc(40);
 
-    i2c_master_read_from_device(I2C_MASTER_NUM, SLAVE_ADR, temp, 40, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
-    printf("%u", temp[0]);
-    *data = *temp;
+    //i2c_master_write_to_device();
+    uint8_t reg_addr = 0x0B; //0x0F
+
+    //i2c_master_read_from_device(I2C_MASTER_NUM, SLAVE_ADDR, data, 512, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+
+    i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, 4, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+
+    // printf("%u", temp[0]);
+    // *data = *temp;
 }
