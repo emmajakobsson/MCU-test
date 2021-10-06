@@ -18,6 +18,7 @@
 
 void configure_sensor(void);
 void configure_i2c_master(void);
+void write_slave_reg(void);
 void read_master_imu(uint8_t *data);
 
 #endif

@@ -15,13 +15,18 @@ void app_main(void)
     int i = 0;
     int count = 0;
 
+    //configure i2c master
     configure_i2c_master();
+    //configure IMU/sensor
+    write_slave_reg();
     
     while(1){
+        //read from device
         read_master_imu(&data);
+        //print values
         printf("Count: %d\n", count);
         for(i = 0; i < 1; i++){
-            printf("Sensor: %08x\n", data); //02x hhn
+            printf("Sensor: %d\n", data); //02x hhn
         }
         count++;
         vTaskDelay(100);
