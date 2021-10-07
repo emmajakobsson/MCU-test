@@ -12,8 +12,6 @@ void app_main(void)
         vTaskDelay(100);
     }*/
     uint8_t data;
-    int i = 0;
-    int count = 0;
 
     //configure i2c master
     configure_i2c_master();
@@ -24,11 +22,7 @@ void app_main(void)
         //read from device
         read_master_imu(&data);
         //print values
-        printf("Count: %d\n", count);
-        for(i = 0; i < 1; i++){
-            printf("Sensor: %d\n", data); //02x hhn
-        }
-        count++;
+        printf("Sensor: %d\n", data); //02x hhn
         vTaskDelay(100);
     }
 }

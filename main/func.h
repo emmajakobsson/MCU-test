@@ -4,7 +4,6 @@
 #include "freertos/task.h"
 #include "driver/adc.h"
 #include "driver/i2c.h"
-#include "malloc.h"
 
 #define I2C_MASTER_FREQ_HZ 400000
 #define I2C_MASTER_NUM 0
