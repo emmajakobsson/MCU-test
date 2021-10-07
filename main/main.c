@@ -12,17 +12,27 @@ void app_main(void)
         vTaskDelay(100);
     }*/
     uint8_t data;
+    int iter = 0;
 
     //configure i2c master
     configure_i2c_master();
     //configure IMU/sensor
-    write_slave_reg();
+    //configure_imu();
     
     while(1){
         //read from device
         read_master_imu(&data);
         //print values
-        printf("Sensor: %d\n", data); //02x hhn
-        vTaskDelay(100);
+        //printf("\e[1;1H\e[2J"); //clear terminal, keep print to one line
+        //printf("iteration: %d\n", iter);
+        if(data == 36){
+            printf("Start transmisson\n");
+            while(data != 10){
+                printf("Sensor: %c\n", (char)data); //02x hhn
+                vTaskDelay(100);
+                read_master_imu(&data);
+            }
+        }
+        iter++;
     }
 }

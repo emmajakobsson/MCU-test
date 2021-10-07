@@ -10,14 +10,14 @@
 #define I2C_MASTER_TX_BUF_DISABLE 0
 #define I2C_MASTER_RX_BUF_DISABLE 0
 #define I2C_MASTER_TIMEOUT_MS 1000
-#define SLAVE_ADDR 0x6B //1101011b //0x42 //66
+#define SLAVE_ADDR 0x42 //0x6B //1101011b //0x42 //66
 
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
 void configure_sensor(void);
 void configure_i2c_master(void);
-void write_slave_reg(void);
+void configure_imu(void);
 void read_master_imu(uint8_t *data);
 
 #endif

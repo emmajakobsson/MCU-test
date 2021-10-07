@@ -24,7 +24,7 @@ void configure_i2c_master(void){
 }
 
 //configure accelerometer/gyro
-void write_slave_reg(void){
+void configure_imu(void){
     uint8_t reg_addr = 0x11; //CTRL2_G, register to write to, for configuration of gyroscope
     uint8_t attr = 0x40; //attributes to configure, setting gyroscope output data rate to normal mode
     uint8_t write_buf[2] = {reg_addr, attr};
@@ -35,7 +35,7 @@ void write_slave_reg(void){
 
 //read i2c master
 void read_master_imu(uint8_t *data){
-    uint8_t reg_addr = 0x24; //output register 0x24
+    uint8_t reg_addr = 0xFF; //output register 0x24
 
     //i2c_master_read_from_device(I2C_MASTER_NUM, SLAVE_ADDR, data, 512, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 
