@@ -27,7 +27,10 @@ void app_main(void)
         //printf("iteration: %d\n", iter);
         if(data == 36){
             printf("Start transmisson\n");
-            while(data != 10){
+            while(data != (13 || 10)){
+                if(data == (240)){
+                    printf("yay\n");
+                }
                 printf("Sensor: %c\n", (char)data); //02x hhn
                 vTaskDelay(100);
                 read_master_imu(&data);
