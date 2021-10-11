@@ -34,11 +34,11 @@ void configure_imu(void){
 }
 
 //read i2c master
-void read_master_imu(uint8_t *data){
+esp_err_t read_master_imu(uint8_t *data){
     uint8_t reg_addr = 0xFF; //output register 0x24
 
     //i2c_master_read_from_device(I2C_MASTER_NUM, SLAVE_ADDR, data, 512, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 
     //read the register value
-    i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+    return i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 }

@@ -8,6 +8,7 @@
     "func.h": "c",
     "freertos.h": "c",
     "stdio.h": "c",
-    "i2c.h": "c"
+    "i2c.h": "c",
+    "*.inc": "c"
   }
 }

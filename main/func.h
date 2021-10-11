@@ -4,6 +4,7 @@
 #include "freertos/task.h"
 #include "driver/adc.h"
 #include "driver/i2c.h"
+#include "string.h"
 
 #define I2C_MASTER_FREQ_HZ 400000
 #define I2C_MASTER_NUM 0
@@ -18,6 +19,6 @@
 void configure_sensor(void);
 void configure_i2c_master(void);
 void configure_imu(void);
-void read_master_imu(uint8_t *data);
+esp_err_t read_master_imu(uint8_t *data);
 
 #endif
