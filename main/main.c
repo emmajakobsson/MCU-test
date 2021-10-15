@@ -13,7 +13,7 @@ void app_main(void)
     }*/
     uint8_t reg_addr = 0xFF; //output register 0x24
     uint8_t data[82] = {-2}; //82 highest value
-    int flag = 0;
+    //int flag = 0;
 
     configure_i2c_master();
     
