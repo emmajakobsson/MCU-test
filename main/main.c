@@ -27,12 +27,10 @@ void app_main(void)
             }
         }
 
-        for(int j = 0; j < 50; j++){
-            if(flag == 1)
-                printf("%c", (char)data[j]); //02x hhn
-        }
-
         if(flag == 1){
+            for(int j = 0; j < 50; j++){
+                printf("%c", (char)data[j]); //02x hhn
+            }
             printf("\n");
         }
 
