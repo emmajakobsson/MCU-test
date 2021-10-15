@@ -12,7 +12,7 @@ void app_main(void)
         vTaskDelay(100);
     }*/
     uint8_t reg_addr = 0xFF; //output register 0x24
-    uint8_t data[50] = {-2}; //82 highest value
+    uint8_t data[82] = {-2}; //82 highest value
     int flag = 0;
 
     configure_i2c_master();
@@ -20,7 +20,11 @@ void app_main(void)
     while(1){
         i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 
-        for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 82; j++){
+            printf("%c", (char)data[j]); //02x hhn
+        }
+
+        /*for(int i = 0; i < 10; i++){
             if(data[i] == 71 && data[i + 1] == 76 && data[i + 2] == 76){
                 flag = 1;
                 break;
@@ -34,7 +38,7 @@ void app_main(void)
             printf("\n");
         }
 
-        flag = 0;
+        flag = 0;*/
         memset(data,-2,sizeof(uint8_t));
         //vTaskDelay(100);
     }
