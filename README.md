@@ -4,8 +4,12 @@ A driver aiding in the data aquisition from the NEO-M9N GPS. The protocol curren
 Known issues is that there is alot of junk data being transmitted.
 
 TODO:
+
 -Fix the junk data transmission
+
 -Add ROS connectivity functionality
+
 -Clean up the code
+
 -Add asserts
 
