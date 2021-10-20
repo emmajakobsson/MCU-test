@@ -13,11 +13,13 @@ void app_main(void)
     }*/
 
     uint8_t reg_addr = 0xFF; //output register 0x24
-    uint8_t data[82] = {-2}; //82 highest value
+    uint8_t data[82] = {94}; //82 highest value
+    //uint8_t cfg_rate[] = {0xB5,0x62,0x06,0x08,0x06,0x00,0x32 ,};
+    //{0xB5, 0x62, 0x06, 0x08, 0x06, 0x00, 0x64, 0x00, 0x01, 0x00, 0x01, 0x00, 0x7A, 0x12}; changes meas rate to 100ms
     //int flag = 0;
 
     configure_i2c_master();
-    
+
     while(1){
 
         //read data from the sensor
@@ -31,6 +33,14 @@ void app_main(void)
         //filtering of messages
         /*for(int i = 0; i < 10; i++){
             if(data[i] == 71 && data[i + 1] == 76 && data[i + 2] == 76){
+                flag = 1;
+                break;
+            }
+            else if(data[i] == 71 && data[i + 1] == 71 && data[i + 2] == 65){
+                flag = 1;
+                break;
+            }
+            else if(data[i] == 82 && data[i + 1] == 77 && data[i + 2] == 67){
                 flag = 1;
                 break;
             }
