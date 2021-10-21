@@ -8,5 +8,5 @@ using namespace std;
 #define HEADER_FILE
 
 int validMessage(string data);
-
+void filter(string data);
 #endif

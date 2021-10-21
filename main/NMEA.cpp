@@ -16,3 +16,10 @@ int validMessage(string data){
 
 }
 
+void NMEA_print(string data){
+
+    if(validMessage(data))
+        std << data;
+
+}
+
