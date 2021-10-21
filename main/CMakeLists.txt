@@ -1,2 +1,2 @@
-idf_component_register(SRCS "NMEA.cpp" "func.c" "main.c"
+idf_component_register(SRCS "main.cpp" "NMEA.cpp" "func.c"
                     INCLUDE_DIRS ".")
