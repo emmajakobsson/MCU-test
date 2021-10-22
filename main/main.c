@@ -23,7 +23,8 @@ void main(void)
         }
 
         //reset the buffer with values
-        memset(data,94,sizeof(uint8_t));
+        
+        memset(data,INIT,sizeof(uint8_t));
         vTaskDelay(50);
     }
 }
