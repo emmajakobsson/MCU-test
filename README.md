@@ -5,8 +5,6 @@ Known issues is that there is alot of junk data being transmitted.
 
 TODO:
 
--Fix the junk data transmission
-
 -Add ROS connectivity functionality
 
 -Clean up the code
