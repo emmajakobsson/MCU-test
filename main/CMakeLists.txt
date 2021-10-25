@@ -1,2 +1,2 @@
-idf_component_register(SRCS "protocol.c" "NMEA.c" "readMCU.c" "main.c"
+idf_component_register(SRCS "main.c"
                     INCLUDE_DIRS ".")

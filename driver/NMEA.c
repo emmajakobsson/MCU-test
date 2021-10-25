@@ -25,7 +25,7 @@ int8_t checkValidMsg(uint8_t data){
     reget_t re;
     uint8_t res;
 
-    res = regcomp(&re, "RMC|GLL|GGA")
+    res = regcomp(&re, "RMC|GLL|GGA");
 
 }
 
