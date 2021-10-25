@@ -1,7 +1,7 @@
-#include "header/protocol.h"
-#include "header/nmea.h"
+#include "protocol.h"
+//#include "nmea.h"
 
-void main(void)
+int main(void)
 {
     /*while(1){
         data = adc1_get_raw(ADC1_CHANNEL_5);

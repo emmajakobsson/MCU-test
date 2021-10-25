@@ -1,4 +1,4 @@
-#include "header/protocol.h"
+#include "protocol.h"
 
 static const int RX_BUF_SIZE = 1024;
 

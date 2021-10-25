@@ -1,9 +1,8 @@
-#include "header/nmea.h"
+/*#include "nmea.h"
 
 const char * NMEA_messages[3] = {"GGA","GLL","RMC"};
 
 int8_t sub_buf(uint8_t buf){
-
     size_buf = sizeof(buf)/sizeof(buf[0]);
 
     if (size_buf < THRESHHOLD){
@@ -21,18 +20,12 @@ int8_t sub_buf(uint8_t buf){
 }
 
 int8_t checkValidMsg(uint8_t data){
-
     reget_t re;
     uint8_t res;
 
     res = regcomp(&re, "RMC|GLL|GGA");
-
 }
 
 int8_t length(uint8_t arr){
-
     return sizeof(arr)/sizeof(arr[0]);
-
-}
-
-
+}*/

@@ -21,6 +21,8 @@
 #define TX_PIN 1
 #define RX_PIN 3
 
+#define INIT 94 //The ASCII sign ^, because it is not present in any NMEA messages.
+
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
