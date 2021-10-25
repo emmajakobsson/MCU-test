@@ -9,6 +9,7 @@
     "freertos.h": "c",
     "stdio.h": "c",
     "i2c.h": "c",
-    "*.inc": "c"
+    "*.inc": "c",
+    "nmea.h": "c"
   }
 }

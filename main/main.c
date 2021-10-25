@@ -1,4 +1,4 @@
-#include "protocol.h"
+#include "header/protocol.h"
 
 void main(void)
 {
@@ -19,7 +19,7 @@ void main(void)
 
         //print the data from the buffer
         for(int j = 0; j < 82; j++){
-            printf("%c", (char)data[j]); //02x hhn
+            printf("%c", (char)data[j]);
         }
 
         //reset the buffer with values

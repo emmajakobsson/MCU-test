@@ -1,4 +1,4 @@
-#include "NMEA.h"
+#include "header/nmea.h"
 
 const char * NMEA_messages[3] = {"GGA","GLL","RMC"};
 
