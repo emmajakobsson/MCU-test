@@ -14,20 +14,22 @@ uint8_t * sub_buf(uint8_t * buf){
 
     }
 
-    return &(*tmp);
+    return &(*buf);
 }
 
-int8_t checkValidMsg(uint8_t data){
+int8_t checkValidMsg(uint8_t * s_buf){
     regex_t re;
-    uint8_t res;
 
-    res = regcomp(&re, NMEA_MESSAGES, REG_EXTENDED|REG_NOSUB);
-    if(res == 0){
-        return 1;
-    }
-    else{
+    char_buf = (char)s_buf;
+    if(regcomp(&re, NMEA_MESSAGES, REG_EXTENDED|REG_NOSUB) != 0){
         return 0;
     }
+        
+    if(regexec(&re, , REG_EXTENDED|REG_NOSUB) != 0){
+        return 0;
+    }
+
+
     
 }
 
