@@ -8,8 +8,8 @@ void main(void)
         vTaskDelay(100);
     }*/
 
-    uint8_t reg_addr = 0xFF; //output register 0x24
-    uint8_t data[82] = {94}; //82 highest value
+    uint8_t reg_addr = 0xFF; //output register
+    uint8_t data[82] = {94};
 
     configure_i2c_master();
 
@@ -23,7 +23,6 @@ void main(void)
         }
 
         //reset the buffer with values
-        
         memset(data,INIT,sizeof(uint8_t));
         vTaskDelay(50);
     }
