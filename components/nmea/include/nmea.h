@@ -1,4 +1,4 @@
-/*#include <string.h>
+#include <string.h>
 #include <sys/types.h>
 #include <regex.h>
 
@@ -10,4 +10,4 @@
 
 int match(char * buf)
 
-#endif*/
+#endif

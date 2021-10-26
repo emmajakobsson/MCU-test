@@ -1,4 +1,4 @@
-/*#include "nmea.h"
+#include "nmea.h"
 
 #define NMEA_MESSAGES "RMC|GLL|GGA"
 
@@ -18,12 +18,8 @@ int match(char * buf){
     regfree(&re);
     return 1;
     
-<<<<<<< Updated upstream
-}
-=======
 }
 
 int8_t length(uint8_t * arr){
     return sizeof(*arr)/sizeof(arr[0]);
-}*/
->>>>>>> Stashed changes
+}

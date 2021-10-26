@@ -1,5 +1,5 @@
 #include "protocol.h"
-//#include "nmea.h"
+#include "nmea.h"
 
 int app_main(void)
 {
