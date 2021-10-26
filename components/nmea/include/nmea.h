@@ -8,6 +8,6 @@
 #define HEADER_FILE
 #define INIT 94
 
-uint8_t * sub_buf(uint8_t * buf);
+int match(char * buf)
 
 #endif
