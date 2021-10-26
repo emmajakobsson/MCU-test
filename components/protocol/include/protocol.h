@@ -23,8 +23,8 @@
 
 #define INIT 94 //The ASCII sign ^, because it is not present in any NMEA messages.
 
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef HEADER_PROT
+#define HEADER_PROT
 
 void configure_adc(void);
 void configure_i2c_master(void);
