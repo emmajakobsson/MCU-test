@@ -11,36 +11,44 @@ int app_main(void)
 
     uint8_t reg_addr = 0xFF; //output register
     uint8_t data[82] = {INIT};
-    printf("\nHEAP: %d\n", xPortGetFreeHeapSize());
     char * msg = calloc(82,1);
+    int i = 0;
+    int res = 1;
 
+    i2c_driver_delete(I2C_MASTER_NUM);
     configure_i2c_master();
-    int res = 2;
+
+    esp_err_t error;
+
     while(1){
         //read data from the sensor
-        i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+        error = i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
+        //printf("ERROR: %d\n",error);
 
-        int i = 0;
+        i = 0;
         while(data[i] != 42){
             msg[i] = (char)data[i];
             i++;
         }
-        /*for(int i = 0; i < 82; i++){
-            
-        }*/
+        //msg[i-1] = '\n';
+        //msg[i] = '*';
+
         res = match(msg,NMEA_MESSAGES);
-        printf("\nmatch: %d\n", res);
+        //printf("\nmatch: %d\n", res);
+
         //print the data from the buffer
         if(res == 1){
             i = 0;
-            while(msg[i] != '*'){
-                printf("%c", msg[i]);
+            while(data[i] != 42){
+                printf("%c", (char)data[i]);
                 i++;
             }
+            printf("\n");
         }
 
+        res = 0;
         //reset the buffer with values
-        memset(data,INIT,sizeof(uint8_t));
+        //memset(data,INIT,sizeof(uint8_t));
         //memset(msg,'^',82);
         vTaskDelay(50);
     }

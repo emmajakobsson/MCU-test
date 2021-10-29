@@ -5,12 +5,13 @@
 #include "driver/adc.h"
 #include "driver/i2c.h"
 #include "driver/uart.h"
+#include "esp_vfs_dev.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
 //I2C
-#define I2C_MASTER_FREQ_HZ 400000 
+#define I2C_MASTER_FREQ_HZ 100000 
 #define I2C_MASTER_NUM 0
 #define I2C_MASTER_TX_BUF_DISABLE 0
 #define I2C_MASTER_RX_BUF_DISABLE 0
@@ -20,6 +21,7 @@
 //UART
 #define TX_PIN 1
 #define RX_PIN 3
+#define BUF_SIZE 1024
 
 #define INIT 94 //The ASCII sign ^, because it is not present in any NMEA messages.
 
