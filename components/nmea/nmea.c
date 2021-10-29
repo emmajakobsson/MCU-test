@@ -26,15 +26,16 @@ int match(char * buf, char * pattern, regmatch_t * pmatch){
 int parse(char * buf, char * pattern){
 
     regmatch_t pmatch[2];
-    if(!match(string, pattern, pmatch)){
+    if(!match(buf, pattern, pmatch)){
         return 0;
     }
-    float  = 
+    //float  = 
     int new_start = pmatch[0].rm_eo + 1;
 
-    if(!match(string, pattern, pmatch)){
+    if(!match(buf, pattern, pmatch)){
         return 0;
     }
+    return 1;
 }
 
 
