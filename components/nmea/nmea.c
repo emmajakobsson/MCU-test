@@ -16,6 +16,8 @@ int match(char * buf, char * pattern, regmatch_t * pmatch){
     if (0 != (rc = regexec(&preg, buf, nmatch, pmatch, 0))) {
         printf("Failed to match '%s' with '%s',returning %d.\n",
                 buf, pattern, rc);
+        regfree(&preg);
+        return 0;
     }
 
     regfree(&preg);
@@ -45,6 +47,7 @@ int parse(char * buf, char * pattern, float * lon, float * lat){
 
 int getPos(char * buf, float * lon, float * lat){
 
+    
     regmatch_t tmp[1];
     if(!match(buf, NMEA_MESSAGES, tmp)){
         return 0;
