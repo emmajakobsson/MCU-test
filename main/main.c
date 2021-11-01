@@ -1,5 +1,6 @@
 #include "nmea.h"
 #include "protocol.h"
+#include "main.h"
 
 int app_main(void)
 {
@@ -13,7 +14,7 @@ int app_main(void)
     uint8_t data[82] = {INIT};
     char * msg = calloc(82,1);
     int i = 0;
-    int res = 1;
+    int res = 0;
 
     i2c_driver_delete(I2C_MASTER_NUM);
     configure_i2c_master();

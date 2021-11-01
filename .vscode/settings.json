@@ -5,7 +5,8 @@
     "nmea.h": "c",
     "array": "c",
     "string": "c",
-    "string_view": "c"
+    "string_view": "c",
+    "*.ipp": "c"
   },
   "idf.flashBaudRate": "115200"
 }

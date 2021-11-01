@@ -1,7 +1,5 @@
 #include "protocol.h"
 
-static const int RX_BUF_SIZE = 1024;
-
 //configure adc sensor reading
 void configure_adc(void){
     //reset pins
@@ -24,21 +22,4 @@ void configure_i2c_master(void){
 
     i2c_param_config(I2C_MASTER_NUM,&conf);
     i2c_driver_install(I2C_MASTER_NUM, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
-}
-
-//configure uart communication
-void configure_uart(void){
-    uart_config_t uart_config = {
-        .baud_rate = 38400,
-        .data_bits = UART_DATA_8_BITS,
-        .parity = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-        .source_clk = UART_SCLK_APB};
-
-    uart_driver_install(UART_NUM_0, RX_BUF_SIZE * 2, 82, 0, NULL, 0);
-    uart_param_config(UART_NUM_0, &uart_config);
-    //uart_set_pin(UART_NUM_0, TX_PIN, RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
-    uart_set_pin(UART_NUM_0, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
-
 }
