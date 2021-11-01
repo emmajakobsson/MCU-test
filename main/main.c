@@ -9,54 +9,41 @@ int app_main(void)
         printf("Sensor reading: %d\n",data);
         vTaskDelay(100);
     }*/
-
-    uint8_t reg_addr = 0xFF; //output register
-    uint8_t data[82] = {INIT};
-    char * msg = calloc(82,1);
     int i = 0;
-    //int res = 0;
+    int c = 0;
     float lon = 0;
     float lat = 0;
+    uint8_t reg_addr = 0xFF; //output register
+    uint8_t * data = calloc(100,4);
+    char * msg = calloc(100,1);
+    if(msg == NULL){
+        printf("Calloc failed\n");
+    }
 
-    i2c_driver_delete(I2C_MASTER_NUM);
+    //i2c_driver_delete(I2C_MASTER_NUM);
     configure_i2c_master();
-
-    //esp_err_t error;
 
     while(1){
         //read data from the sensor
-        i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, sizeof(data), I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
-        //printf("ERROR: %d\n",error);
+        i2c_master_write_read_device(I2C_MASTER_NUM, SLAVE_ADDR, &reg_addr, 1, data, 400, I2C_MASTER_TIMEOUT_MS/portTICK_RATE_MS);
 
         i = 0;
-        while(data[i] != 42){
+        lon = 0;
+        lat = 0;
+        while((data[i] != 42) && (i < 100)){
             msg[i] = (char)data[i];
             i++;
         }
-        //msg[i-1] = '\n';
-        //msg[i] = '*';
 
-        //res = match(msg,NMEA_MESSAGES);
-        if(!getPos(msg, &lon, &lat)){
-            printf("Getpos failed\n");
+        if(!getPos(msg, &lat, &lon)){
+            c++;
+            printf("No data avalible for %d samples\n", c);          
         }
-        printf("Long: %.4f : Lat: %.4f\n", lon, lat);
-        //printf("\nmatch: %d\n", res);
-
-        //print the data from the buffer
-        /*if(res == 1){
-            i = 0;
-            while(data[i] != 42){
-                printf("%c", (char)data[i]);
-                i++;
-            }
-            printf("\n");
-        }*/
-
-        //res = 0;
-        //reset the buffer with values
-        //memset(data,INIT,sizeof(uint8_t));
-        //memset(msg,'^',82);
+        else{
+            c = 0;
+            printf("Lat: %.4f : Long: %.4f\n", lat, lon);
+        }
+        
         vTaskDelay(50);
     }
     return 0;

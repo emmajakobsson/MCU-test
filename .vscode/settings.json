@@ -6,7 +6,15 @@
     "array": "c",
     "string": "c",
     "string_view": "c",
-    "*.ipp": "c"
+    "*.ipp": "c",
+    "deque": "c",
+    "list": "c",
+    "unordered_map": "c",
+    "unordered_set": "c",
+    "vector": "c",
+    "initializer_list": "c",
+    "regex": "c",
+    "random": "c"
   },
   "idf.flashBaudRate": "115200"
 }
